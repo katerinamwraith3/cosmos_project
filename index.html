@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cosmos Sport Hiring Journey</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f4f4f4;
+  color:#1a1a1a;
+  line-height:1.8;
+}
+
+:root{
+  --cosmos-red:#E30613;
+  --dark:#111;
+}
+
+header{
+  background:var(--dark);
+  color:white;
+  padding:25px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  color:var(--cosmos-red);
+  font-weight:bold;
+  font-size:24px;
+}
+
+.language-switch button{
+  background:transparent;
+  border:1px solid white;
+  color:white;
+  padding:6px 12px;
+  margin-left:8px;
+  cursor:pointer;
+}
+
+.hero{
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b');
+  background-size:cover;
+  background-position:center;
+  color:white;
+  text-align:center;
+  padding:130px 20px;
+}
+
+.hero h1{
+  font-size:50px;
+  margin-bottom:15px;
+}
+
+.section-title{
+  text-align:center;
+  margin:90px 0 50px;
+}
+
+.section-title h2{
+  font-size:34px;
+  position:relative;
+  display:inline-block;
+}
+
+.section-title h2::after{
+  content:"";
+  width:60%;
+  height:4px;
+  background:var(--cosmos-red);
+  position:absolute;
+  left:20%;
+  bottom:-10px;
+}
+
+.timeline{
+  position:relative;
+  width:90%;
+  max-width:1000px;
+  margin:auto;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  width:4px;
+  background:#ddd;
+  top:0;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.step{
+  width:50%;
+  padding:25px 50px;
+  position:relative;
+  margin-bottom:50px;
+}
+
+.step:nth-child(odd){
+  left:0;
+  text-align:right;
+}
+
+.step:nth-child(even){
+  left:50%;
+}
+
+.step-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.05);
+}
+
+.step-box h3{
+  color:var(--cosmos-red);
+  margin-bottom:10px;
+}
+
+.step-number{
+  position:absolute;
+  width:45px;
+  height:45px;
+  background:var(--cosmos-red);
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  top:20px;
+}
+
+.step:nth-child(odd) .step-number{
+  right:-22px;
+}
+
+.step:nth-child(even) .step-number{
+  left:-22px;
+}
+
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  width:90%;
+  max-width:1000px;
+  margin:auto;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-left:5px solid var(--cosmos-red);
+  border-radius:12px;
+}
+
+.inside{
+  width:90%;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.inside-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:25px;
+}
+
+.inside-card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  border-top:4px solid var(--cosmos-red);
+}
+
+.faq{
+  width:90%;
+  max-width:900px;
+  margin:80px auto;
+}
+
+.faq-item{
+  background:white;
+  margin-bottom:12px;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+}
+
+.faq-question{
+  width:100%;
+  padding:18px;
+  background:white;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:0.3s;
+  padding:0 18px;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:0.4s ease;
+  padding:0 18px;
+}
+
+.faq-item.active .faq-answer{
+  max-height:500px;
+  padding:15px 18px;
+}
+
+.faq-answer p{
+  padding:15px 0;
+  font-size:16px;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  color:#1a1a1a;
+  line-height:1.6;
+}
+
+.faq-question{
+  font-size:16px;
+  font-family: Arial, sans-serif;
+  font-weight:700;
+}
+
+footer{
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:40px;
+  margin-top:80px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">COSMOS SPORT</div>
+
+  <div class="language-switch">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('gr')">GR</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 id="hero-title">Your Hiring Journey Starts Here</h1>
+</section>
+
+<div class="section-title"><h2 id="process-title">Hiring Process</h2></div>
+
+<div class="timeline">
+
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-box">
+      <h3 id="s1">Application Submission</h3>
+      <p id="p1">
+        Submit your CV through our careers page. You will receive an automatic confirmation email once your application is received.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-box">
+      <h3 id="s2">First Interview</h3>
+      <p id="p2">
+        An introductory call with our HR team to discuss your background, motivation and availability - online or in person, depending on the role.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-box">
+      <h3 id="s3">Final Interview</h3>
+      <p id="p3">
+        Final discussion with the Store Manager or Area Manager regarding culture fit, goals and expectations.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-box">
+      <h3 id="s4">Offer & Onboarding</h3>
+      <p id="p4">
+        Successful candidates receive an official offer and begin the onboarding process with the Cosmos Sport team.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section-title"><h2 id="tools-title">Communication Tools </h2></div>
+
+<div class="tools">
+  <div class="card" id="tool1">Email Communication (ATS System)</div>
+  <div class="card" id="tool2">Video Conferencing</div>
+  <div class="card" id="tool3">Instant Messaging</div>
+</div>
+
+<div class="section-title"><h2 id="inside-title">FAQ</h2></div>
+
+<div class="inside">
+  <p id="inside-text">No confusion. Just clarity.</p>
+</div>
+
+<div class="faq">
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      <span id="q1">How long does the recruitment process take?</span>
+      <span>+</span>
+    </button>
+    <div class="faq-answer"><p id="a1">About 1 week.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      <span id="q2">Do I need experience?</span>
+      <span>+</span>
+    </button>
+    <div class="faq-answer"><p id="a2">Not always — motivation matters more.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      <span id="q3">What are the next steps after I get an interview?</span>
+      <span>+</span>
+    </button>
+    <div class="faq-answer"><p id="a3">You will receive an email with the next steps.</p></div>
+  </div>
+    
+ <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      <span id="q4">Is AI used in the recruitment process?</span>
+      <span>+</span>
+    </button>
+    <div class="faq-answer"><p id="a4">No, our process is entirely human-driven.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      <span id="q5">Is the interview process online or in person?</span>
+      <span>+</span>
+    </button>
+    <div class="faq-answer"><p id="a5">It depends on the role. The first steps are usually remote, while final interviews are often in person at the store or office..</p></div>
+  </div>
+
+
+</div>
+
+<footer>© 2026 Cosmos Sport</footer>
+
+<script>
+
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const all = document.querySelectorAll(".faq-item");
+
+  all.forEach(el=>{
+    if(el !== item) el.classList.remove("active");
+  });
+
+  item.classList.toggle("active");
+}
+
+function setLang(lang){
+
+  if(lang==="gr"){
+
+    document.getElementById("hero-title").innerHTML="Η Επαγγελματική σου Διαδρομή Ξεκινά Εδώ";
+    document.getElementById("process-title").innerHTML="Διαδικασία Πρόσληψης";
+    document.getElementById("tools-title").innerHTML="Εργαλεία Επικοινωνίας";
+    document.getElementById("inside-title").innerHTML="Συχνές Ερωτήσεις";
+
+    document.getElementById("s1").innerHTML="Υποβολή Αίτησης";
+    document.getElementById("p1").innerHTML="Υποβάλετε το βιογραφικό σας μέσω της σελίδας καριέρας μας. Θα λάβετε αυτόματο email επιβεβαίωσης μόλις παραληφθεί η αίτησή σας.";
+
+    document.getElementById("s2").innerHTML="Πρώτη Συνέντευξη";
+    document.getElementById("p2").innerHTML="Επικοινωνία με την ομάδα HR, για να συζητήσουμε το υπόβαθρό σας, τα κίνητρα και τη διαθεσιμότητά σας — online ή δια ζώσης, ανάλογα με τη θέση.";
+    document.getElementById("s3").innerHTML="Τελική Συνέντευξη";
+    document.getElementById("p3").innerHTML="Τελική συνάντηση με τον Store Manager ή τον Area Manager, με στόχο την αξιολόγηση της πολιτισμικής ταιριαστότητας, των στόχων και των προσδοκιών.";
+
+    document.getElementById("s4").innerHTML="Πρόταση & Onboarding";
+    document.getElementById("p4").innerHTML="Οι επιλεγμένοι υποψήφιοι λαμβάνουν επίσημη πρόταση συνεργασίας και ξεκινούν τη διαδικασία ένταξης στην ομάδα της Cosmos Sport.";
+    
+    document.getElementById("tool1").innerHTML="Email (ATS Σύστημα)";
+    document.getElementById("tool2").innerHTML="Βιντεοκλήσεις";
+    document.getElementById("tool3").innerHTML="Άμεσα Μηνύματα";
+
+    document.getElementById("inside-text").innerHTML="Καμία σύγχυση. Μόνο ξεκάθαρη εμπειρία.";
+
+    document.getElementById("q1").innerHTML="Πόσο διαρκεί η διαδικασία πρόσληψης;";
+    document.getElementById("a1").innerHTML="Συνήθως 1 εβδομάδα.";
+
+    document.getElementById("q2").innerHTML="Χρειάζεται να έχω προϋπηρεσία;";
+    document.getElementById("a2").innerHTML="Όχι απαραίτητα — η διάθεση και η ενέργεια μετράνε περισσότερο.";
+
+    document.getElementById("q3").innerHTML="Ποιά είναι τα επόμενα βήματα μετά την συνέντευξή μου;";
+    document.getElementById("a3").innerHTML="Θα λάβετε email με τα επόμενα βήματα.";
+
+    document.getElementById("q4").innerHTML="Χρησιμοποιείται η τεχνητή νοημοσύνη στη διαδικασία πρόσληψης;";
+    document.getElementById("a4").innerHTML="Όχι, η διαδικασία είναι εξ ολοκλήρου ανθρώπινη.";
+
+    document.getElementById("q5").innerHTML="Η διαδικασία συνέντευξης είναι online ή δια ζώσης;";
+    document.getElementById("a5").innerHTML="Εξαρτάται από τη θέση. Τα πρώτα βήματα γίνονται συνήθως απομακρυσμένα, ενώ οι τελικές συνεντεύξεις συχνά γίνονται δια ζώσης στο κατάστημα ή στο γραφείο.";
+  } else {
+    location.reload();
+  }
+}
+
+</script>
+
+</body>
+</html>
