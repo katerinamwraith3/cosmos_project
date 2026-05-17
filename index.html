@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="el">
-
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Cosmos Sport Hiring Journey</title>
 
 <style>
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: Arial, sans-serif;
+  font-family:Arial, sans-serif;
+}
+
+:root{
+  --cosmos-red:#E30613;
+  --dark:#111;
 }
 
 body{
   background:#f4f4f4;
   color:#1a1a1a;
   line-height:1.8;
-}
-
-:root{
-  --cosmos-red:#E30613;
-  --dark:#111;
+  overflow-x:hidden;
 }
 
 header{
@@ -49,6 +48,7 @@ header{
   margin-left:8px;
   cursor:pointer;
   border-radius:6px;
+  appearance:none;
 }
 
 .hero{
@@ -65,6 +65,7 @@ header{
 .hero h1{
   font-size:50px;
   margin-bottom:15px;
+  line-height:1.2;
 }
 
 .section-title{
@@ -179,20 +180,6 @@ header{
   text-align:center;
 }
 
-.inside-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  margin-top:25px;
-}
-
-.inside-card{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  border-top:4px solid var(--cosmos-red);
-}
-
 .faq{
   width:90%;
   max-width:900px;
@@ -218,6 +205,21 @@ header{
   justify-content:space-between;
   align-items:center;
   font-size:16px;
+  color:#1a1a1a;
+  text-align:left;
+  gap:15px;
+  appearance:none;
+}
+
+.faq-question span:first-child{
+  flex:1;
+}
+
+.faq-question span:last-child{
+  flex-shrink:0;
+  color:var(--cosmos-red);
+  font-size:24px;
+  font-weight:bold;
 }
 
 .faq-answer{
@@ -247,8 +249,6 @@ footer{
   margin-top:80px;
 }
 
-/* MOBILE RESPONSIVE */
-
 @media (max-width:768px){
 
   header{
@@ -263,11 +263,10 @@ footer{
 
   .hero h1{
     font-size:32px;
-    line-height:1.2;
   }
 
   .section-title{
-    margin:60px 0 35px;
+    margin:50px 0 30px;
   }
 
   .section-title h2{
@@ -300,23 +299,27 @@ footer{
     padding:20px;
   }
 
-  .tools,
-  .inside-grid{
+  .tools{
     grid-template-columns:1fr;
   }
 
   .faq{
     width:92%;
+    margin:50px auto;
+  }
+
+  .faq-question{
+    font-size:15px;
+    line-height:1.4;
+    padding:18px 20px;
   }
 
   footer{
     padding:30px 20px;
+    margin-top:50px;
   }
-
 }
-
 </style>
-
 </head>
 
 <body>
@@ -344,9 +347,7 @@ footer{
     <div class="step-number">1</div>
     <div class="step-box">
       <h3 id="s1">Application Submission</h3>
-      <p id="p1">
-        Submit your CV through our careers page. You will receive an automatic confirmation email once your application is received.
-      </p>
+      <p id="p1">Submit your CV through our careers page. You will receive an automatic confirmation email once your application is received.</p>
     </div>
   </div>
 
@@ -354,9 +355,7 @@ footer{
     <div class="step-number">2</div>
     <div class="step-box">
       <h3 id="s2">First Interview</h3>
-      <p id="p2">
-        An introductory call with our HR team to discuss your background, motivation and availability - online or in person, depending on the role.
-      </p>
+      <p id="p2">An introductory call with our HR team to discuss your background, motivation and availability - online or in person, depending on the role.</p>
     </div>
   </div>
 
@@ -364,9 +363,7 @@ footer{
     <div class="step-number">3</div>
     <div class="step-box">
       <h3 id="s3">Final Interview</h3>
-      <p id="p3">
-        Final discussion with the Store Manager or Area Manager regarding culture fit, goals and expectations.
-      </p>
+      <p id="p3">Final discussion with the Store Manager or Area Manager regarding culture fit, goals and expectations.</p>
     </div>
   </div>
 
@@ -374,9 +371,7 @@ footer{
     <div class="step-number">4</div>
     <div class="step-box">
       <h3 id="s4">Offer & Onboarding</h3>
-      <p id="p4">
-        Successful candidates receive an official offer and begin the onboarding process with the Cosmos Sport team.
-      </p>
+      <p id="p4">Successful candidates receive an official offer and begin the onboarding process with the Cosmos Sport team.</p>
     </div>
   </div>
 
@@ -448,9 +443,7 @@ footer{
       <span>+</span>
     </button>
     <div class="faq-answer">
-      <p id="a5">
-        It depends on the role. The first steps are usually remote, while final interviews are often in person at the store or office.
-      </p>
+      <p id="a5">It depends on the role. The first steps are usually remote, while final interviews are often in person at the store or office.</p>
     </div>
   </div>
 
@@ -459,9 +452,7 @@ footer{
 <footer>© 2026 Cosmos Sport</footer>
 
 <script>
-
 function toggleFaq(btn){
-
   const item = btn.parentElement;
   const all = document.querySelectorAll(".faq-item");
 
@@ -490,12 +481,12 @@ function setLang(lang){
     document.getElementById("p2").innerHTML="Επικοινωνία με την ομάδα HR για να συζητήσουμε το υπόβαθρό σας, τα κίνητρα και τη διαθεσιμότητά σας — online ή δια ζώσης, ανάλογα με τη θέση.";
 
     document.getElementById("s3").innerHTML="Τελική Συνέντευξη";
-    document.getElementById("p3").innerHTML="Τελική συνάντηση με τον Store Manager ή τον Area Manager σχετικά με την κουλτούρα, τους στόχους και τις προσδοκίες.";
+    document.getElementById("p3").innerHTML="Τελική συζήτηση με τον Store Manager ή τον Area Manager σχετικά με την κουλτούρα, τους στόχους και τις προσδοκίες.";
 
     document.getElementById("s4").innerHTML="Πρόταση & Onboarding";
     document.getElementById("p4").innerHTML="Οι επιλεγμένοι υποψήφιοι λαμβάνουν επίσημη πρόταση συνεργασίας και ξεκινούν τη διαδικασία ένταξης στην ομάδα της Cosmos Sport.";
 
-    document.getElementById("tool1").innerHTML="Email (ATS Σύστημα)";
+    document.getElementById("tool1").innerHTML="Email Επικοινωνία (ATS Σύστημα)";
     document.getElementById("tool2").innerHTML="Βιντεοκλήσεις";
     document.getElementById("tool3").innerHTML="Άμεσα Μηνύματα";
 
@@ -514,11 +505,9 @@ function setLang(lang){
     document.getElementById("a4").innerHTML="Όχι, η διαδικασία είναι πλήρως ανθρώπινη.";
 
     document.getElementById("q5").innerHTML="Η συνέντευξη γίνεται online ή δια ζώσης;";
-    document.getElementById("a5").innerHTML="Εξαρτάται από τη θέση. Τα πρώτα στάδια γίνονται συνήθως online, ενώ οι τελικές συνεντεύξεις συχνά πραγματοποιούνται δια ζώσης.";
+    document.getElementById("a5").innerHTML="Εξαρτάται από τη θέση. Τα πρώτα στάδια γίνονται συνήθως online, ενώ οι τελικές συνεντεύξεις πραγματοποιούνται συχνά δια ζώσης.";
 
-  }
-
-  else{
+  } else {
 
     document.getElementById("hero-title").innerHTML="Your Hiring Journey Starts Here";
     document.getElementById("process-title").innerHTML="Hiring Process";
@@ -556,12 +545,13 @@ function setLang(lang){
     document.getElementById("a4").innerHTML="No, our process is entirely human-driven.";
 
     document.getElementById("q5").innerHTML="Is the interview process online or in person?";
-    document.getElementById("a5").innerHTML="It depends on the role. The first steps are usually remote, while final interviews are often in person.";
-
+    document.getElementById("a5").innerHTML="It depends on the role. The first steps are usually remote, while final interviews are often in person at the store or office.";
   }
-
 }
+</script>
 
+</body>
+</html>
 </script>
 
 </body>
